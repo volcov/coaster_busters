@@ -15,10 +15,12 @@ defmodule CoasterBusters.Manufacturers.Manufacturer do
     field :founded, :integer
     field :website, :string
 
-    def changeset(manufacturer, params \\ %{}) do
-      manufacturer
-      |> cast(params, @fields)
-      |> validate_required(@required_fields)
-    end
+    has_many :coasters, CoasterBusters.Coasters.Coaster
+  end
+
+  def changeset(manufacturer, params \\ %{}) do
+    manufacturer
+    |> cast(params, @fields)
+    |> validate_required(@required_fields)
   end
 end

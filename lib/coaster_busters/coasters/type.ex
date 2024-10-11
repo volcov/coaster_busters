@@ -12,6 +12,8 @@ defmodule CoasterBusters.Coasters.Type do
   schema "coaster_types" do
     field :name, :string
     field :description, :string
+
+    many_to_many :coasters, CoasterBusters.Coasters.Coaster, join_through: "coasters_types"
   end
 
   def changeset(coaster_type, params \\ %{}) do

@@ -17,6 +17,8 @@ defmodule CoasterBusters.Parks.Park do
     field :operating_season, {:array, Ecto.Enum},
       values: [:winter, :spring, :autumn, :summer, :all_seasons],
       default: []
+
+    has_many :coasters, CoasterBusters.Coasters.Coaster
   end
 
   def changeset(park, params \\ %{}) do
