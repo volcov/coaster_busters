@@ -19,6 +19,7 @@ defmodule CoasterBusters.Repo.Migrations.AddCoastersTable do
       add :coaster_type_id, references(:coaster_types)
     end
 
+    create unique_index(:coasters, [:name, :park_id])
     create unique_index(:coasters_types, [:coaster_id, :coaster_type_id])
   end
 end

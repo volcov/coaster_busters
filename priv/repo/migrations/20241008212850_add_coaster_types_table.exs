@@ -6,5 +6,7 @@ defmodule CoasterBusters.Repo.Migrations.AddCoasterTypesTable do
       add :name, :string
       add :description, :string
     end
+
+    create unique_index(:coaster_types, [:name])
   end
 end

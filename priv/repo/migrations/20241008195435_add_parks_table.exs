@@ -8,5 +8,7 @@ defmodule CoasterBusters.Repo.Migrations.AddParksTable do
       add :website, :string
       add :operating_season, {:array, :string}
     end
+
+    create unique_index(:parks, [:name])
   end
 end

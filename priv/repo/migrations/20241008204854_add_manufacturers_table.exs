@@ -8,5 +8,7 @@ defmodule CoasterBusters.Repo.Migrations.AddManufacturersTable do
       add :founded, :integer
       add :website, :string
     end
+
+    create unique_index(:manufacturers, [:name])
   end
 end

@@ -28,6 +28,8 @@ defmodule CoasterBusters.Coasters.Coaster do
   def changeset(coaster, params \\ %{}) do
     coaster
     |> cast(params, @fields)
+    |> put_assoc(:park, Map.get(params, :park))
+    |> put_assoc(:manufacturer, Map.get(params, :manufacturer))
     |> validate_required(@required_fields)
   end
 end
