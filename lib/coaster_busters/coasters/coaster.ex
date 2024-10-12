@@ -22,7 +22,9 @@ defmodule CoasterBusters.Coasters.Coaster do
     belongs_to :park, CoasterBusters.Parks.Park
     belongs_to :manufacturer, CoasterBusters.Manufacturers.Manufacturer
 
-    many_to_many :types, CoasterBusters.Coasters.Type, join_through: "coasters_types"
+    many_to_many :types, CoasterBusters.Coasters.Type,
+      join_through: "coasters_types",
+      join_keys: [coaster_id: :id, coaster_type_id: :id]
   end
 
   def changeset(coaster, params \\ %{}) do
@@ -30,6 +32,7 @@ defmodule CoasterBusters.Coasters.Coaster do
     |> cast(params, @fields)
     |> put_assoc(:park, Map.get(params, :park))
     |> put_assoc(:manufacturer, Map.get(params, :manufacturer))
+    |> put_assoc(:types, Map.get(params, :types))
     |> validate_required(@required_fields)
   end
 end

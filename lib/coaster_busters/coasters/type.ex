@@ -6,7 +6,7 @@ defmodule CoasterBusters.Coasters.Type do
   use Ecto.Schema
   import Ecto.Changeset
 
-  @required_fields ~w(name description)a
+  @required_fields ~w(name)a
   @fields ~w(name description)a
 
   schema "coaster_types" do
