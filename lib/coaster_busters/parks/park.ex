@@ -6,6 +6,16 @@ defmodule CoasterBusters.Parks.Park do
   use Ecto.Schema
   import Ecto.Changeset
 
+  alias CoasterBusters.Coasters.Coaster
+
+  @type t :: %__MODULE__{
+          name: String.t(),
+          location: String.t(),
+          website: String.t(),
+          operating_season: atom(),
+          coasters: list(Coaster)
+        }
+
   @required_fields ~w(name location website)a
   @fields ~w(name location website operating_season)a
 
@@ -18,7 +28,7 @@ defmodule CoasterBusters.Parks.Park do
       values: [:winter, :spring, :autumn, :summer, :all_seasons],
       default: []
 
-    has_many :coasters, CoasterBusters.Coasters.Coaster
+    has_many :coasters, Coaster
   end
 
   def changeset(park, params \\ %{}) do
