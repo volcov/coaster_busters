@@ -22,7 +22,7 @@ defmodule CoasterBusters.Factory do
       name: "Universal's Islands of Adventure",
       location: "Orlando, Florida, USA",
       website: "https://www.universalorlando.com/",
-      operating_season: :all_seasons
+      operating_season: [:all_seasons]
     }
   end
 
@@ -38,8 +38,8 @@ defmodule CoasterBusters.Factory do
   def type_factory do
     %CoasterBusters.Coasters.Type{
       name: "Launched",
-      description: "A launched roller coaster is a type of roller coaster that propels the train
-        to a high speed in a short space of time, sometimes up an incline."
+      description:
+        "A launched roller coaster is a type of roller coaster that propels the train to a high speed in a short space of time, sometimes up an incline."
     }
   end
 end
