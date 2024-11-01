@@ -6,6 +6,18 @@ defmodule CoasterBusters.Coasters.Coaster do
   use Ecto.Schema
   import Ecto.Changeset
 
+  @type t :: %__MODULE__{
+          name: String.t(),
+          height: non_neg_integer(),
+          length: non_neg_integer(),
+          top_speed: non_neg_integer(),
+          inversions: non_neg_integer(),
+          status: atom(),
+          park: struct(),
+          manufacturer: struct(),
+          types: list()
+        }
+
   @required_fields ~w(name status park)a
   @fields ~w(name height length top_speed inversions status)a
 
