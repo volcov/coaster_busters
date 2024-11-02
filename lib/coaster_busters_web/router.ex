@@ -7,6 +7,8 @@ defmodule CoasterBustersWeb.Router do
 
   scope "/api", CoasterBustersWeb do
     pipe_through :api
+
+    get "/coasters", CoasterController, :index
   end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development
