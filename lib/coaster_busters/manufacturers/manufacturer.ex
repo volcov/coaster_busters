@@ -6,6 +6,16 @@ defmodule CoasterBusters.Manufacturers.Manufacturer do
   use Ecto.Schema
   import Ecto.Changeset
 
+  alias CoasterBusters.Coasters.Coaster
+
+  @type t :: %__MODULE__{
+          name: String.t(),
+          country: String.t(),
+          founded: non_neg_integer(),
+          website: String.t(),
+          coasters: list(Coaster)
+        }
+
   @required_fields ~w(name country website)a
   @fields ~w(name country founded website)a
 
@@ -15,7 +25,7 @@ defmodule CoasterBusters.Manufacturers.Manufacturer do
     field :founded, :integer
     field :website, :string
 
-    has_many :coasters, CoasterBusters.Coasters.Coaster
+    has_many :coasters, Coaster
   end
 
   def changeset(manufacturer, params \\ %{}) do

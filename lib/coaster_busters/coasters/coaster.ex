@@ -6,6 +6,22 @@ defmodule CoasterBusters.Coasters.Coaster do
   use Ecto.Schema
   import Ecto.Changeset
 
+  alias CoasterBusters.Coasters.Type
+  alias CoasterBusters.Manufacturers.Manufacturer
+  alias CoasterBusters.Parks.Park
+
+  @type t :: %__MODULE__{
+          name: String.t(),
+          height: non_neg_integer(),
+          length: non_neg_integer(),
+          top_speed: non_neg_integer(),
+          inversions: non_neg_integer(),
+          status: atom(),
+          park: Park.t(),
+          manufacturer: Manufacturer.t(),
+          types: list(Type)
+        }
+
   @required_fields ~w(name status park)a
   @fields ~w(name height length top_speed inversions status)a
 
@@ -19,8 +35,8 @@ defmodule CoasterBusters.Coasters.Coaster do
     field :status, Ecto.Enum,
       values: [:operating, :permanently_closed, :temporarily_closed, :building]
 
-    belongs_to :park, CoasterBusters.Parks.Park
-    belongs_to :manufacturer, CoasterBusters.Manufacturers.Manufacturer
+    belongs_to :park, Park
+    belongs_to :manufacturer, Manufacturer
 
     many_to_many :types, CoasterBusters.Coasters.Type,
       join_through: "coasters_types",

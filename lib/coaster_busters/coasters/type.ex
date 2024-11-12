@@ -6,6 +6,11 @@ defmodule CoasterBusters.Coasters.Type do
   use Ecto.Schema
   import Ecto.Changeset
 
+  @type t :: %__MODULE__{
+          name: String.t(),
+          description: String.t()
+        }
+
   @required_fields ~w(name)a
   @fields ~w(name description)a
 
