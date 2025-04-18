@@ -20,5 +20,5 @@ defmodule CoasterBustersWeb.Gettext do
 
   See the [Gettext Docs](https://hexdocs.pm/gettext) for detailed usage.
   """
-  use Gettext, otp_app: :coaster_busters
+  use Gettext.Backend, otp_app: :coaster_busters
 end

@@ -41,8 +41,9 @@ defmodule CoasterBustersWeb do
         formats: [:html, :json],
         layouts: [html: CoasterBustersWeb.Layouts]
 
+      use Gettext, backend: CoasterBusters.Gettext
+
       import Plug.Conn
-      import CoasterBustersWeb.Gettext
 
       unquote(verified_routes())
     end
