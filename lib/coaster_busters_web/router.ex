@@ -5,10 +5,27 @@ defmodule CoasterBustersWeb.Router do
     plug :accepts, ["json"]
   end
 
+  pipeline :browser do
+    plug :accepts, ["html"]
+    plug :fetch_session
+    plug :fetch_flash
+    plug :fetch_live_flash
+    plug :put_root_layout, html: {CoasterBustersWeb.Layouts, :root}
+    plug :protect_from_forgery
+    plug :put_secure_browser_headers
+  end
+
   scope "/api", CoasterBustersWeb do
     pipe_through :api
 
     get "/coasters", CoasterController, :index
+  end
+
+  scope "/", CoasterBustersWeb do
+    pipe_through :browser
+
+    # Rota inicial para testar o LiveView
+    live "/", HomeLive, :index
   end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development
