@@ -15,7 +15,7 @@ permissions:
 
 jobs:
   credo:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu22
     name: Credo
     strategy:
       matrix:
@@ -38,7 +38,7 @@ jobs:
     services:
       db:
         image: postgres:12
-        ports: ['5432:5432']
+        ports: ["5432:5432"]
         env:
           POSTGRES_PASSWORD: postgres
         options: >-
