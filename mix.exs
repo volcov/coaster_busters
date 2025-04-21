@@ -45,6 +45,10 @@ defmodule CoasterBusters.MixProject do
       {:jason, "~> 1.2"},
       {:dns_cluster, "~> 0.1.1"},
       {:bandit, "~> 1.5"},
+      {:phoenix_live_view, "~> 0.20.1"},
+      {:phoenix_html, "~> 3.3"},
+      {:esbuild, "~> 0.7", runtime: Mix.env() == :dev},
+      {:floki, "~> 0.36.0", only: :test},
       {:credo, "~> 1.7", only: [:dev, :test], runtime: false},
       {:ex_machina, "~> 2.8.0", only: :test}
     ]
@@ -61,7 +65,8 @@ defmodule CoasterBusters.MixProject do
       setup: ["deps.get", "ecto.setup"],
       "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
       "ecto.reset": ["ecto.drop", "ecto.setup"],
-      test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"]
+      test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"],
+      "assets.deploy": ["esbuild default", "phx.digest"]
     ]
   end
 end

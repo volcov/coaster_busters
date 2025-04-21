@@ -23,7 +23,7 @@ defmodule CoasterBustersWeb.Endpoint do
     at: "/",
     from: :coaster_busters,
     gzip: false,
-    only: CoasterBustersWeb.static_paths()
+    only: ~w(assets fonts images favicon.ico robots.txt)
 
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.
