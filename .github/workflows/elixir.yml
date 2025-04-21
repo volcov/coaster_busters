@@ -46,7 +46,7 @@ jobs:
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     name: Elixir Test
     strategy:
       matrix:
