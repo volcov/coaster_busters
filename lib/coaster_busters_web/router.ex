@@ -26,6 +26,7 @@ defmodule CoasterBustersWeb.Router do
 
     # Rota inicial para testar o LiveView
     live "/", HomeLive, :index
+    live "/coasters", CoasterLive, :index
   end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development

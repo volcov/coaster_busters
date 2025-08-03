@@ -11,5 +11,6 @@ defmodule CoasterBusters.Coasters do
   @spec list_coasters() :: list(Coaster.t())
   def list_coasters() do
     Repo.all(Coaster)
+    |> Repo.preload([:park, :manufacturer])
   end
 end
