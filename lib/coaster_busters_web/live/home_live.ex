@@ -19,7 +19,7 @@ defmodule CoasterBustersWeb.HomeLive do
             </div>
 
             <div class="flex items-center space-x-8">
-              <a href="#" class="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
+              <a href="/coasters" class="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
                 🎢 Coasters
               </a>
               <a href="#" class="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
@@ -47,11 +47,11 @@ defmodule CoasterBustersWeb.HomeLive do
           <div class="mt-10">
             <div class="grid grid-cols-1 gap-8 sm:grid-cols-3 lg:grid-cols-3 max-w-6xl mx-auto">
               <!-- Coasters Card -->
-              <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-200">
+              <a href="/coasters" class="block bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-200 hover:scale-105 transform transition-transform duration-200">
                 <div class="text-4xl mb-4">🎢</div>
                 <h3 class="text-lg font-semibold text-gray-900 mb-2">Coasters</h3>
                 <p class="text-gray-600 text-sm">Explore as montanhas russas mais emocionantes do mundo</p>
-              </div>
+              </a>
 
               <!-- Manufacturers Card -->
               <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-200">
