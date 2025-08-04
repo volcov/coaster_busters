@@ -19,6 +19,7 @@ defmodule CoasterBustersWeb.Router do
     pipe_through :api
 
     get "/coasters", CoasterController, :index
+    get "/coasters/types", CoasterController, :types
   end
 
   scope "/", CoasterBustersWeb do

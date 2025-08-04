@@ -7,4 +7,9 @@ defmodule CoasterBustersWeb.CoasterController do
     costers = Coasters.list_coasters()
     render(conn, :index, coasters: costers)
   end
+
+  def types(conn, _params) do
+    types = Coasters.list_coaster_types()
+    render(conn, :types, types: types)
+  end
 end
